@@ -1,0 +1,16 @@
+<!-- music/templates/song_list.html -->
+<h1>Song List</h1>
+<ul>
+    {% for song in songs %}
+        <li>
+            <strong>{{ song.title }}</strong><br>
+            <audio controls>
+                <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio><br>
+            {% if song.cover_image %}
+                <img src="{{ song.cover_image.url }}" alt="{{ song.title }}" style="width: 100px; height: 100px;">
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
